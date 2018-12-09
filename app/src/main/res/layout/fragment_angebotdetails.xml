@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/myAngListe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#62727b"
+    tools:layout_editor_absoluteY="25dp">
+
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".DealDetailsFragment"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <!-- TODO: Update blank fragment layout
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+            -->
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/myProfile"
+        android:layout_width="248dp"
+        android:layout_height="165dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:padding="5dp"
+        android:src="@drawable/mouse"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="384dp"
+        android:layout_height="72dp"
+        android:background="#fafafa"
+        android:paddingLeft="110dp"
+        android:text="Mause Pad"
+        android:textSize="30dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="224dp"
+        android:textStyle="bold"/>
+
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="384dp"
+        android:layout_height="81dp"
+        android:background="#fafafa"
+        android:paddingLeft="125dp"
+        android:text="15 Euro "
+        android:textSize="30dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="296dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="385dp"
+        android:layout_height="52dp"
+        android:background="#fafafa"
+        android:text="Beschreibung"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="376dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="421dp"
+        android:layout_height="159dp"
+        android:text="Das ist beschreibung, Das ist beschreibung,Das ist beschreibung,Das ist beschreibung,Das ist beschreibung Das ist beschreibung,Das ist beschreibung,Das ist beschreibung,Das ist beschreibung,Das ist beschreibung,Das ist beschreibung,Das ist beschreibung,Das ist beschreibung,Das ist beschreibung,Das ist beschreibung,Das ist beschreibung,Das ist beschreibung,Das ist beschreibung,Das ist beschreibung,Das ist beschreibung,"
+        android:textColor="#ffffff"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="424dp" />
+
+
+</android.support.constraint.ConstraintLayout>
