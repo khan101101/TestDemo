@@ -114,9 +114,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         bt = (Button) findViewById(R.id.button);
 
-
-
-
         Firebase.setAndroidContext(this);
 
         url = new Firebase ("https://testdemo-3e073.firebaseio.com/");
@@ -184,7 +181,6 @@ public class MainActivity extends AppCompatActivity {
                 && data != null && data.getData() != null) {
             mImageUri = data.getData();
 
-            //Picasso.with(this).load(mImageUri).into(mImageView);
             mImageView.setImageURI(mImageUri);
         }
     }
@@ -238,6 +234,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
         }
     }
-    
+
 
 }
