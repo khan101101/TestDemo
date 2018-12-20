@@ -73,9 +73,6 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
 
-
-
-
 public class MainActivity extends AppCompatActivity {
 
     Button bt;
@@ -198,10 +195,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
 
     } //End of oncreate
 

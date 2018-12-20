@@ -53,7 +53,8 @@
         android:layout_marginBottom="43dp"
         app:layout_constraintBottom_toTopOf="@+id/button_choose_image"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/text_view_show_uploads" />
+        app:layout_constraintTop_toTopOf="@+id/text_view_show_uploads"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
