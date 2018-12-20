@@ -131,36 +131,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        //From here is test
-        /*
-        image = (ImageView)findViewById(R.id.imageId);
-        uploadbtn = (Button) findViewById(R.id.uploadButtonId);
-        pathArray = new ArrayList<>();
-        auth = FirebaseAuth.getInstance();
-        mstorageReference = FirebaseStorage.getInstance().getReference();
-
-        checkFilePermissions();
-        addFilePaths();
-        uploadbtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-
-                Log.d(TAG,"uploading image");
-                Uri uri = Uri.fromFile(new File(pathArray.get(array_position)));
-                StorageReference storageReference = mstorageReference.child("images/users/"+".jpg");
-                storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>(){
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot){
-
-                       // Toast.makeText(this,message,Toast.LENGTH_LONG).show());
-
-                    }
-                });
-            }
-        }
-        );
-*/
-
         mButtonChooseImage = findViewById(R.id.button_choose_image);
         mButtonUpload = findViewById(R.id.button_upload);
         mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
@@ -268,41 +238,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
         }
     }
-
-    /*
-    private void checkFilePermissions(){
-        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP){
-            int permissionCheck = MainActivity.this.checkSelfPermission(("Manifest.permission.READ_EXTERNAL_STORAGE"));
-            permissionCheck += MainActivity.this.checkSelfPermission("Manifes.permissin.WRITE_EXTERNAL_STORAGE");
-            if(permissionCheck != 0){
-                this.requestPermissions(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.READ_EXTERNAL_STORAGE},1);
-            }
-        }
-        else {
-            Log.d(TAG, "checkPermissions: No need to check");
-        }
-    }
-
-    private void addFilePaths(){
-
-        Log.d(TAG, "addFilePaths: Adding file paths.");
-        String path = System.getenv("EXTERNAL_STORAGE");
-        pathArray.add(path+"/Pictures/73");
-        pathArray.add(path+"/Pictures/photo");
-        loadImageFromStorage();
-    }
-
-    private void loadImageFromStorage(){
-        try {
-            String path = pathArray.get(array_position);
-            File f = new File(path, "");
-            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
-            image.setImageBitmap(b);
-        } catch (FileNotFoundException e){
-            Log.e(TAG,"loadfromStorage failed");
-        }
-    }
-
-    */
+    
 
 }
