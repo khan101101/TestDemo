@@ -10,6 +10,20 @@
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_above="@id/progress_bar"
+        android:layout_below="@id/edit_text_file_name"
+        android:layout_marginTop="159dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="116dp"
+        app:layout_constraintBottom_toTopOf="@+id/edit_text_file_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image_view"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
@@ -35,26 +49,29 @@
         android:id="@+id/edit_text_file_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="51dp"
         android:layout_toEndOf="@+id/button_choose_image"
         android:hint="Enter file name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/image_view"
-        android:layout_width="384dp"
-        android:layout_height="0dp"
+        android:layout_width="70dp"
+        android:layout_height="139dp"
         android:layout_above="@id/progress_bar"
         android:layout_below="@id/edit_text_file_name"
         android:layout_marginStart="16dp"
         android:layout_marginTop="47dp"
+        android:layout_marginEnd="213dp"
         android:layout_marginBottom="43dp"
         app:layout_constraintBottom_toTopOf="@+id/button_choose_image"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/text_view_show_uploads"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.989" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
@@ -96,6 +113,16 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/button_upload"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/secUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="37dp"
+        android:text="2ndUpload"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_upload" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -89,8 +90,15 @@ public class MainActivity extends AppCompatActivity {
     private StorageReference mstorageReference;
     private FirebaseAuth auth;
 
+    //From 21.12
+    Button button;
+    ImageView myImageView;
 
-    private static final int PICK_IMAGE_REQUEST = 1;
+
+    //private static final int PICK_IMAGE_REQUEST = 1;
+    private static final int CAMERA_REQUEST_CODE = 1;
+    private StorageReference mStorage;
+
 
     private Button mButtonChooseImage;
     private Button mButtonUpload;
@@ -135,16 +143,38 @@ public class MainActivity extends AppCompatActivity {
         mImageView = findViewById(R.id.image_view);
         mProgressBar = findViewById(R.id.progress_bar);
 
+        //From 21.12
+        button = findViewById(R.id.secUpload);
+        myImageView = findViewById(R.id.imageView2);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO take picture
+                // onLaunchCamera();
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, CAMERA_REQUEST_CODE);
+
+            }
+
+
+        });
+
+
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+        mStorage = FirebaseStorage.getInstance().getReference();// From 21.12.18
 
+        /*
         mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openFileChooser();
             }
         });
+        */
 
+        /*
         mButtonUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        */
 
         mTextViewShowUploads.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,14 +196,37 @@ public class MainActivity extends AppCompatActivity {
 
     } //End of oncreate
 
+//From 21.12
+@Override
+public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        /*
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == getActivity().RESULT_OK) {
+              Bundle extras = data.getExtras();
+              Bitmap imageBitmap = (Bitmap) extras.get("data");
+              artPictureImg.setImageBitmap(imageBitmap);
+              */
+    super.onActivityResult(requestCode,resultCode,data);
 
+    if(requestCode==CAMERA_REQUEST_CODE && resultCode==RESULT_OK){
+        Uri uri = data.getData();
+        StorageReference filePath = mStorage.child("DealsFotos").child(uri.getLastPathSegment());
+        filePath.putFile(uri);
+
+    }
+}
+
+
+
+
+/*
     private void openFileChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
-
+*/
+    /*
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -184,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
             mImageView.setImageURI(mImageUri);
         }
     }
-
+*/
     private String getFileExtension(Uri uri) {
         ContentResolver cR = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
